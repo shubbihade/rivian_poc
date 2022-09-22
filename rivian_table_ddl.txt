@@ -1,0 +1,60 @@
+Transaction table ddl 
+
+create table transaction(
+	TRANSACTION_NO varchar,
+	ACCOUNT_NO varchar,
+	T_DATE varchar,
+	TRANSACTION_DETAILS varchar,
+	CHQ_NO varchar,
+	VALUE_DATE varchar,
+	WITHDRAWAL_AMT varchar,
+	DEPOSIT_AMT varchar,
+    BALANCE_AMT varchar)
+	
+copy command ---
+copy ac_users
+from 's3://silver-data-bucket/customer_table_null.csv'
+iam_role 'arn:aws:iam::863312617510:role/service-role/AmazonRedshift-CommandsAccessRole-20220906T123244'
+region 'us-east-1'
+delimiter ',' ;
+
+
+cutomer_temp
+
+create table customer_temp(
+	ACCOUNT_NO varchar,
+	NAME varchar,
+	AGE varchar,
+	COUNTRY varchar,
+	GENDER varchar,
+	ACCOUNT_STATUS varchar,
+	LAST_UPDATED_DATE varchar,
+	CREATED_DATE varchar,
+    INSERT_DATE date,
+	STATUS varchar)
+	
+customer_snapshot	
+	
+create table customer_snapshot(
+	ACCOUNT_NO varchar,
+	NAME varchar,
+	AGE varchar,
+	COUNTRY varchar,
+	GENDER varchar,
+	ACCOUNT_STATUS varchar,
+	LAST_UPDATED_DATE varchar,
+	CREATED_DATE varchar,
+    INSERT_DATE varchar,
+	STATUS varchar)
+	
+	
+create table customer(
+	ACCOUNT_NO varchar,
+	NAME varchar,
+	AGE varchar,
+	COUNTRY varchar,
+	GENDER varchar,
+	ACCOUNT_STATUS varchar,
+	LAST_UPDATED_DATE varchar,
+	CREATED_DATE varchar,
+    INSERT_DATE varchar)
